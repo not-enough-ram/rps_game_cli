@@ -64,7 +64,7 @@ public class RockPaperScissor {
     private static String getRandomChoice() {
         String[] choices = new String[]{"Schere", "Stein", "Papier"};
         Random r = new Random();
-        return choices[r.nextInt(3)];
+        return choices[r.nextInt(choices.length)];
     }
 
     public static void main(String[] args) {
