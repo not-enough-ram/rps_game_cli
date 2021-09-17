@@ -27,7 +27,7 @@ public class RockPaperScissor {
         } else if (playerMove.equalsIgnoreCase("schere") ||
                 playerMove.equalsIgnoreCase("stein") ||
                 playerMove.equalsIgnoreCase("papier")) {
-            return playerMove.toLowerCase();
+            return playerMove;
         } else
             return "invalid";
     }
