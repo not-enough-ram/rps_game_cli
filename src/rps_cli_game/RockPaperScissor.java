@@ -9,32 +9,32 @@ public class RockPaperScissor {
 
     private static void gameLoop() {
         while (true) {
-            String userInput = getPlayerInput();
-            if (userInput.equals("quit")) break;
-            if (userInput.equals("invalid")) {
+            String playerMove = getPlayerInput();
+            if (playerMove.equalsIgnoreCase("quit")) break;
+            if (playerMove.equalsIgnoreCase("invalid")) {
                 System.out.println("Ungueltiger Spielzug!");
                 continue;
             }
-            System.out.println(getGameResults(userInput));
+            System.out.println(getGameResults(playerMove));
         }
     }
 
     private static String getPlayerInput() {
         System.out.println("Dein Spielzug: 'Schere', 'Stein' oder 'Papier' ('Quit'?)");
-        String userInput = scanner.nextLine();
-        if (userInput.equalsIgnoreCase("quit")) {
+        String playerMove = scanner.nextLine();
+        if (playerMove.equalsIgnoreCase("quit")) {
             return "quit";
-        } else if (userInput.equalsIgnoreCase("schere") ||
-                userInput.equalsIgnoreCase("stein") ||
-                userInput.equalsIgnoreCase("papier")) {
-            return userInput.toLowerCase();
+        } else if (playerMove.equalsIgnoreCase("schere") ||
+                playerMove.equalsIgnoreCase("stein") ||
+                playerMove.equalsIgnoreCase("papier")) {
+            return playerMove;
         } else
             return "invalid";
     }
 
-    private static String getGameResults(String userInput) {
+    private static String getGameResults(String playerMove) {
         String cpuMove = getRandomChoice();
-        return compareMoves(userInput, cpuMove);
+        return compareMoves(playerMove, cpuMove);
     }
 
     private static String compareMoves(String playerMove, String cpuMove) {
